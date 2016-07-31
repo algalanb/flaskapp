@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for plate in plates %}
+      <h2><a href="{{ url_for('plates.detail', slug=plate.slug) }}">{{ plate.name }}</a></h2>
+     <p>{{ plate.slug }}</p>
+      <p>{{ plate.description }}</p>
+      <p> {{plate.price}} </p>
+    {% endfor %}
+{% endblock %}

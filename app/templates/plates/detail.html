@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+  <div class="page-header">
+    <h1>{{ plate.name }}</h1>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <p>{{ plate.description }}<p>
+ <p>Alergias:{{ plate.allergies }}<p> 
+ <hr>
+  <h2>Ingredientes Extra</h2>
+  {% if plate.extra_ingredients %}
+    {% for extra_ingredient in plate.extra_ingredients %}
+       <p>{{ extra_ingredient.ingredient }}</p>
+       <p>{{ extra_ingredient.ing_price }}</p>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
