@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "_forms.html" as forms %}
 
 {% block page_header %}
   <div class="page-header">
@@ -13,8 +14,15 @@
   <h2>Ingredientes Extra</h2>
   {% if plate.extra_ingredients %}
     {% for extra_ingredient in plate.extra_ingredients %}
-       <p>{{ extra_ingredient.ingredient }}</p>
-       <p>{{ extra_ingredient.ing_price }}</p>
+       <p>{{ extra_ingredient.ingredient }}...................{{ extra_ingredient.ing_price }}</p>
     {% endfor %}
   {% endif %}
+  <hr>
+<h2>Add a extra ingredient</h2>
+<form action="." method="post">
+  {{ forms.render(form) }}
+  <div class="actions">
+    <input type="submit" class="btn primary" value="add">
+  </div>
+</form>
 {% endblock %}

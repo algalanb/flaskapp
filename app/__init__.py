@@ -14,6 +14,8 @@ if __name__ == '__main__':
 def register_blueprints(app):
     # Prevents circular imports
     from app.views import plates
+    from app.admin import admin
     app.register_blueprint(plates)
+    app.register_blueprint(admin)
 
 register_blueprints(app)
